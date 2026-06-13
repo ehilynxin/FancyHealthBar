@@ -27,7 +27,5 @@ dependencies {
 }
 
 jar {
-
     archiveFileName ="FancyHealthBar-"+stonecutter.current.version+"-"+project.version+".jar";
-
 }

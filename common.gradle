@@ -1,4 +1,5 @@
-def targetJavaVersion = 25
+def targetJavaVersion = stonecutter.current.parsed.matches(">=26.1")?25:
+        stonecutter.current.parsed.matches(">=1.21.11")?21:17
 
 def loadProps(path) {
     def p = new Properties()
@@ -11,7 +12,7 @@ loadProps("../../environment.properties")
 modrinth {
     token = project.modrinth_token
     projectId = "d5wz0u1I"
-    versionNumber = project.version+"+"+stonecutter.current.version
+    versionNumber = project.mod_version+"+"+stonecutter.current.version
     versionType="release"
     uploadFile=project.jarTask
     gameVersions=[stonecutter.current.version]
