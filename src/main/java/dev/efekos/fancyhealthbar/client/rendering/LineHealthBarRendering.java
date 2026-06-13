@@ -54,11 +54,8 @@ public class LineHealthBarRendering implements HealthBarRendering {
     @Override
     public void drawPreview(RandomSource random, GuiGraphics context, int x, int y, int lines, int lastHealth, int health, boolean blinking, boolean hardcore) {
 
-        //? <1.21.6
-        context.pose().pushPose();
-        //? >=1.21.6
-        //context.pose().pushMatrix();
-        context.pose().translate(options.offset().x,options.offset().y/*? <1.21.6 {*/,0/*?}*/);
+        x+=options.offset().x;
+        y+=options.offset().y;
 
         LineRenderingOptions.LineStyle lineStyle = hardcore ? options.hardcoreLineStyle() : options.normalLineStyle();
         int healthW = (int) Math.floor((health / 20d)*90);
@@ -80,11 +77,6 @@ public class LineHealthBarRendering implements HealthBarRendering {
             RenderSystem.disableBlend();
         }
 
-        //? <1.21.6
-        context.pose().popPose();
-        //? >=1.21.6
-        //context.pose().popMatrix();
-
         updateAnimationState(health,20f);
         updateDeltaWidth(health,20f, healthW);
         updateLastHealth(health,20f,lineStyle);
@@ -97,12 +89,8 @@ public class LineHealthBarRendering implements HealthBarRendering {
     @Override
     public void draw(RandomSource random, GuiGraphics context, Player player, int x, int y, int lines, int regeneratingHeartIndex, float maxHealth, int a, int health, int absorption, boolean blinking) {
 
-
-        //? <1.21.6
-        context.pose().pushPose();
-        //? >=1.21.6
-        //context.pose().pushMatrix();
-        context.pose().translate(options.offset().x,options.offset().y/*? <1.21.6 {*/,0/*?}*/);
+        x+=options.offset().x;
+        y+=options.offset().y;
 
         boolean hardcore = Try.orElse(()->player.level().getLevelData().isHardcore(),false);
 
@@ -128,22 +116,16 @@ public class LineHealthBarRendering implements HealthBarRendering {
             RenderSystem.disableBlend();
         }
 
-
-        //? <1.21.6
-        context.pose().popPose();
-        //? >=1.21.6
-        //context.pose().popMatrix();
-
         updateAnimationState(player.getHealth(),player.getMaxHealth());
         updateDeltaWidth(player.getHealth(),player.getMaxHealth(), healthW);
         updateLastHealth(player.getHealth(),player.getMaxHealth(),lineStyle);
     }
 
     private void updatePositions(int x, int y) {
-        regenTrack.setX(x+options.offset().x);
-        regenTrack.setY(y+options.offset().y);
-        fulledTrack.setX(x+options.offset().x);
-        fulledTrack.setY(y+options.offset().y);
+        regenTrack.setX(x);
+        regenTrack.setY(y);
+        fulledTrack.setX(x);
+        fulledTrack.setY(y);
     }
 
     private void updateLastHealth(float health,float maxHealth,LineRenderingOptions.LineStyle lineStyle) {
@@ -181,7 +163,7 @@ public class LineHealthBarRendering implements HealthBarRendering {
 
     private void drawTxtr(GuiGraphics context, Texture texture, int x, int y, int width, LineRenderingOptions.LineStyle lineStyle) {
         if(lineStyle.scissor()){
-            context.enableScissor(x+options.offset().x, y+options.offset().y, x+options.offset().x+width, y+options.offset().y +9);
+            context.enableScissor(x, y, x+width, y+9);
             texture.draw(context,x,y,90,9);
             context.disableScissor();
         } else
