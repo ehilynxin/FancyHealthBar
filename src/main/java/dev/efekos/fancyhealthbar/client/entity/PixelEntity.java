@@ -53,7 +53,9 @@ public class PixelEntity extends HudEntity {
         /*context.drawTexture(texture.atlasId(),(int)x,(int)y,size,size,u+texture.atlasPosition().u1(),v+texture.atlasPosition().v1(),1,1,256,256,getAlpha());
         *///?} else {
         TextureAtlasSprite sprite = ctx./*? >=1.21.9 {*//*guiSprites*//*?} else {*/sprites/*?}*/.getSprite(texture.baseId().unwrap());
-        float unit=(sprite.getU1()-sprite.getU0())/sprite.contents().width();
+        int width = sprite.contents().width();
+        if(width>9)width=width/(width/9);
+        float unit=(sprite.getU1()-sprite.getU0())/ width;
         int textureSize = (int)(1/unit);
         //? <1.21.2
         context.drawTexture(CompatKey.of(sprite.atlasLocation()),(int)x,(int)y,size,size,u+ sprite.getU0()* textureSize,v+ sprite.getV0()* textureSize,1,1, textureSize, textureSize,getAlpha());
