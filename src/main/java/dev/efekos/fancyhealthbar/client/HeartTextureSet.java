@@ -1,7 +1,7 @@
 package dev.efekos.fancyhealthbar.client;
 
 import dev.efekos.fancyhealthbar.client.compat.Texture;
-import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui./*?>=26.2{*//*Hud*//*?}else{*/Gui/*?}*/;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.HashMap;
@@ -79,7 +79,7 @@ public record HeartTextureSet(Texture full, Texture fullBlinking, Texture half, 
     }
 
     public static HeartTextureSet tryGetFromPlayer(Player player) {
-        Gui.HeartType type = Gui.HeartType.forPlayer(player);
+        /*?>=26.2{*//*Hud*//*?}else{*/Gui/*?}*/.HeartType type = /*?>=26.2{*//*Hud*//*?}else{*/Gui/*?}*/.HeartType.forPlayer(player);
         return switch (type){
             case CONTAINER->CONTAINER;
             case NORMAL->NORMAL;

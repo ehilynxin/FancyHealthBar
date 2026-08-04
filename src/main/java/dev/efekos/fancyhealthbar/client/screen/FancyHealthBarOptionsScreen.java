@@ -50,7 +50,7 @@ public class FancyHealthBarOptionsScreen extends Screen {
 
     @Override
     public void onClose() {
-        this.minecraft.setScreen(parent);
+        this.minecraft/*?>=26.2{*//*.gui*//*?}*/.setScreen(parent);
     }
 
     protected void repositionElements() {
@@ -260,7 +260,7 @@ public class FancyHealthBarOptionsScreen extends Screen {
         healthBars.visitChildren(widget ->
             ((HealthBarWidget) widget).setRendering(this.options.getRenderingOptions().createRendering().initialize(manager,controller,minecraft))
         );
-        ((InGameHudRenderingAccessor) Minecraft.getInstance().gui).fhb$setRendering(options.getRenderingOptions().createRendering());
+        ((InGameHudRenderingAccessor) minecraft.gui/*?>=26.2{*//*.hud*//*?}*/).fhb$setRendering(options.getRenderingOptions().createRendering());
         healthBarName.setMessage(Component.translatable("options.fancyhealthbar.rendering."+this.options.getSelectedRendering()));
         scrollWidget.setScrollY(0);
     }

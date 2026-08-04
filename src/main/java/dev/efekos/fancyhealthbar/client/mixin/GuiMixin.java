@@ -11,8 +11,7 @@ import dev.efekos.fancyhealthbar.client.entity.HudEntityManager;
 import dev.efekos.fancyhealthbar.client.rendering.HealthBarRendering;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.Gui;
-import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui./*?>=26.2{*//*Hud*//*?}else{*/Gui/*?}*/;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.util.RandomSource;
 import org.spongepowered.asm.mixin.*;
@@ -20,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Gui.class)
+@Mixin(/*?>=26.2{*//*Hud*//*?}else{*/Gui/*?}*/.class)
 public abstract class GuiMixin implements InGameHudRenderingAccessor {
 
     @Shadow

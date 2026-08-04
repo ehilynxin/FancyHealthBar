@@ -55,6 +55,12 @@ public class DirectionalLayoutWidget implements Layout {
         this.wrapped.visitChildren(layoutElementVisitor);
     }
 
+    //?>=26.2 {
+    /*public void removeChildren() {
+        this.wrapped.removeChildren();
+    }
+    *///?}
+
     @Override
     public void arrangeElements() {
         this.wrapped.arrangeElements();
