@@ -100,3 +100,10 @@ jar {
         rename { "${it}_${project.archivesBaseName}" }
     }
 }
+
+tasks.register('collectJar',Copy) {
+    var file = project.jarTask.archiveFileName.get()
+    var ver = project.version
+    from "build/libs/$file"
+    into "../../build/libs/$ver"
+}
