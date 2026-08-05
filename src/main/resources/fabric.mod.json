@@ -26,7 +26,8 @@
     "fancyhealthbar.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": "*",
+    "fabric": "*",
     "minecraft": "${minecraft_version}"
   },
   "accessWidener": "accessWidener/${aw_file}",
