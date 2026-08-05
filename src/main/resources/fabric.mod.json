@@ -27,7 +27,7 @@
   ],
   "depends": {
     "fabricloader": "*",
-    "fabric": "*",
+    "fabric-api": "*",
     "minecraft": "${minecraft_version}"
   },
   "accessWidener": "accessWidener/${aw_file}",
