@@ -1,0 +1,45 @@
+package dev.ehilynxin.fancyhealthbar.client.entity;
+
+//~if >=26.1 'GuiGraphics' -> 'GuiGraphicsExtractor' {
+
+import dev.ehilynxin.fancyhealthbar.client.compat.Texture;
+import net.minecraft.client.gui.GuiGraphics;
+import org.joml.Vector2d;
+import org.joml.Vector2i;
+
+public class LineJumpEntity extends HudEntity {
+
+    private final Texture texture;
+    private final int width;
+
+    public LineJumpEntity(double x, double y, int width, Texture texture) {
+        super(x, y);
+        setVelocity(new Vector2d(0,5));
+        setDrag(0.25f);
+        this.texture = texture;
+        this.width = width;
+    }
+
+    @Override
+    public int getMaxLifetime() {
+        return 20;
+    }
+
+    @Override
+    public void render(GuiGraphics context) {
+        texture.draw(context,(int)x,(int)y,width,9,1-(lifetime/(float)getMaxLifetime()));
+    }
+
+    @Override
+    public Vector2i getAreaTaken() {
+        return new Vector2i((int)x+width,(int)y+9);
+    }
+
+    @Override
+    public boolean hasPhysics() {
+        return true;
+    }
+
+}
+
+//~}

@@ -3,23 +3,23 @@
   "id": "fancyhealthbar",
   "version": "${version}",
   "name": "FancyHealthBar",
-  "description": "Overhaul of the health bar.",
+  "description": "An overhaul for the health bar.",
   "authors": [
-    "efekos"
+    "ehilynxin"
   ],
   "contact": {
-    "sources": "https://github.com/efekos/FancyHealthBar",
-    "issues": "https://github.com/efekos/FancyHealthBar/issues"
+    "sources": "https://github.com/ehilynxin/FancyHealthBar",
+    "issues": "https://github.com/ehilynxin/FancyHealthBar/issues"
   },
   "license": "MIT",
   "icon": "assets/fancyhealthbar/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "dev.efekos.fancyhealthbar.client.FancyHealthBarClient"
+      "dev.ehilynxin.fancyhealthbar.client.FancyHealthBarClient"
     ],
     "modmenu": [
-      "dev.efekos.fancyhealthbar.client.modmenu.FancyHealthBarModMenu"
+      "dev.ehilynxin.fancyhealthbar.client.modmenu.FancyHealthBarModMenu"
     ]
   },
   "mixins": [
@@ -38,7 +38,7 @@
         "modmenu.patreon": "https://efekos.dev/patreon",
         "modmenu.modrinth": "https://modrinth.com/mod/fancy-health-bar",
         "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/fancy-health-bar",
-        "modmenu.github_releases": "https://github.com/efekos/FancyHealthBar/releases"
+        "modmenu.github_releases": "https://github.com/ehilynxin/FancyHealthBar/releases"
       },
       "badges": [ ]
     }

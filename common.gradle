@@ -21,6 +21,7 @@ modrinth {
     detectLoaders = false
     dependencies {
         optional.project "modmenu"
+        required.project 'fabric-api'
     }
 }
 
@@ -34,6 +35,7 @@ project.afterEvaluate {
         def mainFile = upload(990963, project.jarTask)
         mainFile.changelog = file("../../changelog.txt").text
         mainFile.addOptional('modmenu')
+        mainFile.addRequirement('fabric-api')
         mainFile.releaseType = 'release'
         mainFile.changelogType = 'markdown'
         mainFile.addGameVersion(stonecutter.current.version, 'Fabric', "Java $targetJavaVersion", 'Client')
