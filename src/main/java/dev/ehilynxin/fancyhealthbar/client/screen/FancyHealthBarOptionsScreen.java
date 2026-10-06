@@ -171,7 +171,7 @@ public class FancyHealthBarOptionsScreen extends Screen {
 
     /*@Override
     public boolean mouseDragged(MouseButtonEvent click, double offsetX, double offsetY) {
-        return this.getFocused() != null && this.isDragging() && (click.button()==0||click.button()==1) && this.getFocused().mouseDragged(click,offsetX,offsetY);
+        return this.getFocused() != null && this.isDragging() && (click.button()==/^?>=26.3{^//^3^//^?}else{^/0/^?}^/||click.button()==1) && this.getFocused().mouseDragged(click,offsetX,offsetY);
     }
 
     @Override
@@ -179,7 +179,7 @@ public class FancyHealthBarOptionsScreen extends Screen {
         for(GuiEventListener element : this.children())
             if (element.mouseClicked(click,doubled)) {
                 this.setFocused(element);
-                if (click.button()==0||click.button()==1) this.setDragging(true);
+                if (click.button()==/^?>=26.3{^//^3^//^?}else{^/0/^?}^/||click.button()==1) this.setDragging(true);
                 return true;
             }
         return false;

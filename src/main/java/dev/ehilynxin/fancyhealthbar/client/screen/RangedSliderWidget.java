@@ -280,7 +280,7 @@ public abstract class RangedSliderWidget extends AbstractWidget {
 
 
     protected boolean isValidClickButton(int button) {
-        return button==0||button==1;
+        return button==/*?>=26.3{*//*3*//*?}else{*/0/*?}*/||button==1;
     }
 
     //? >=1.21.9 {
@@ -299,7 +299,7 @@ public abstract class RangedSliderWidget extends AbstractWidget {
                 //?}
                 if (bl) {
                     this.playDownSound(Minecraft.getInstance().getSoundManager());
-                    if(button==0) this.onClick(mouseX, mouseY);
+                    if(button==/*?>=26.3{*//*1*//*?}else{*/0/*?}*/) this.onClick(mouseX, mouseY);
                     else this.onRightClick(mouseX,mouseY);
                     return true;
                 }
@@ -322,8 +322,8 @@ public abstract class RangedSliderWidget extends AbstractWidget {
     }
     //?} else {
     /*public boolean mouseDragged(MouseButtonEvent click, double offsetX, double offsetY) {
-        if(click.button()==1||click.button()==0){
-            if(click.button()==0)onDrag(click,offsetX,offsetY);
+        if(click.button()==1||click.button()==/^?>=26.3{^//^3^//^?}else{^/0/^?}^/){
+            if(click.button()==/^?>=26.3{^//^1^//^?}else{^/0/^?}^/)onDrag(click,offsetX,offsetY);
             else onRightDrag(click,offsetX,offsetY);
             return true;
         }

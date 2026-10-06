@@ -1,6 +1,7 @@
 package dev.ehilynxin.fancyhealthbar.client.screen;
 
 //~if>=26.1 'GuiGraphics' -> 'GuiGraphicsExtractor' {
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 //? >=1.21.9
 //import net.minecraft.client.input.InputWithModifiers;
