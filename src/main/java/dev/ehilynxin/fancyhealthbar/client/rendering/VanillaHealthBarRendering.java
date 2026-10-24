@@ -4,6 +4,7 @@ package dev.ehilynxin.fancyhealthbar.client.rendering;
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.ehilynxin.fancyhealthbar.client.HeartTextureSet;
 import dev.ehilynxin.fancyhealthbar.client.animation.AnimationController;
+import dev.ehilynxin.fancyhealthbar.client.compat.CompatConstants;
 import dev.ehilynxin.fancyhealthbar.client.compat.Texture;
 import dev.ehilynxin.fancyhealthbar.client.entity.HudEntityManager;
 import dev.ehilynxin.fancyhealthbar.client.entity.PixelEntity;
@@ -83,7 +84,7 @@ public class VanillaHealthBarRendering implements HealthBarRendering {
     public void draw(RandomSource random, GuiGraphics context, Player player, int x, int y,
                      int lines, int regeneratingHeartIndex, float maxHealth, int lastHealth, int health, int absorption,
                      boolean blinking) {
-
+//        if(CompatConstants.noVanillaOverflow)return;
         //? <1.21.6
         context.pose().pushPose();
         //? >=1.21.6
@@ -165,6 +166,8 @@ public class VanillaHealthBarRendering implements HealthBarRendering {
         int healthDif = lastHealth-health;
 
         Texture texture = heartType.getTexture(hardcore, false, blinking);
+
+        if(CompatConstants.noVanillaOverflow) lines = 0;
 
         boolean bothLost = lastHealth % 2 != 0 && health % 2 != 0;
         boolean endHalfLost = lastHealth % 2 == 0 && health % 2 != 0;

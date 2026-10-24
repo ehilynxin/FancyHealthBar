@@ -1,9 +1,11 @@
 package dev.ehilynxin.fancyhealthbar.client.options;
 
 import com.google.gson.JsonObject;
+import dev.ehilynxin.fancyhealthbar.client.compat.CompatConstants;
 import dev.ehilynxin.fancyhealthbar.client.rendering.HealthBarRendering;
 import dev.ehilynxin.fancyhealthbar.client.rendering.VanillaHealthBarRendering;
 import dev.ehilynxin.fancyhealthbar.client.screen.*;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.GridLayout;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -49,8 +51,14 @@ public class VanillaRenderingOptions implements HealthBarRenderingOptions {
         adder.addChild(new FhbRangedDoubleSliderWidget(-1,1, Component.translatable("options.fancyhealthbar.vanilla.acceleration_x"),this.getAccelerationX()));
         adder.addChild(new FhbRangedDoubleSliderWidget(-1,1, Component.translatable("options.fancyhealthbar.vanilla.acceleration_y"),this.getAccelerationY()));
 
-        adder.addChild(new FhbSliderWidget(-200,200, Component.translatable("options.fancyhealthbar.generic.offset_x"),offset().x, v->offset.x = v));
-        adder.addChild(new FhbSliderWidget(-200,200, Component.translatable("options.fancyhealthbar.generic.offset_y"),offset().y, v->offset.y = v));
+        FhbSliderWidget offsetX = new FhbSliderWidget(-200, 200, Component.translatable("options.fancyhealthbar.generic.offset_x"), offset().x, v -> offset.x = v);
+        FhbSliderWidget offsetY = new FhbSliderWidget(-200, 200, Component.translatable("options.fancyhealthbar.generic.offset_y"), offset().y, v -> offset.y = v);
+        if(CompatConstants.offsetWarning!=null){
+            offsetX.setTooltip(Tooltip.create(CompatConstants.offsetWarning));
+            offsetY.setTooltip(Tooltip.create(CompatConstants.offsetWarning));
+        }
+        adder.addChild(offsetX);
+        adder.addChild(offsetY);
 
         adder.addChild(new FhbRangedDoubleSliderWidget(0,1, Component.translatable("options.fancyhealthbar.vanilla.drag"),this.getDrag()));
         adder.addChild(new FhbRangedSliderWidget(1,150, Component.translatable("options.fancyhealthbar.vanilla.lifetime"),this.getMaxLifetime()));

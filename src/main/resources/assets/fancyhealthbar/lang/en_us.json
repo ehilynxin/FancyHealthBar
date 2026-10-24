@@ -42,5 +42,6 @@
   "options.fancyhealthbar.generic.offset_x": "X Offset",
   "options.fancyhealthbar.generic.offset_y": "Y Offset",
   "options.fancyhealthbar.line.style.thin": "Thin",
-  "options.fancyhealthbar.line.style.line": "Line"
+  "options.fancyhealthbar.line.style.line": "Line",
+  "warning.fancyhealthbar.overflowingbars": "This option isn't compatible with Overflowing Bars."
 }

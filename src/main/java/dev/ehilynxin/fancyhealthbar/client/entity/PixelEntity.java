@@ -3,7 +3,10 @@ package dev.ehilynxin.fancyhealthbar.client.entity;
 //~if >=26.1 'GuiGraphics' -> 'GuiGraphicsExtractor' {
 
 //? >=1.21.6 {
-/*import com.mojang.renderpearl.api.pipeline.RenderPipeline;
+/*//?<26.3
+import com.mojang.blaze3d.pipeline.RenderPipeline;
+//?>=26.3
+//import com.mojang.renderpearl.api.pipeline.RenderPipeline;
 import dev.ehilynxin.fancyhealthbar.client.compat.CompatKey;
 import net.minecraft.client.renderer.RenderPipelines;
 *///?}
@@ -12,8 +15,11 @@ import dev.ehilynxin.fancyhealthbar.client.compat.CompatKey;
 import dev.ehilynxin.fancyhealthbar.client.compat.Texture;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-//? >=1.21.6
-//import org.joml.Vector2i;
+//? <1.21.11
+import net.minecraft.resources.ResourceLocation;
+import org.joml.Vector2i;
+//? <1.21.11
+import net.minecraft.client.renderer.RenderType;
 
 //? >=1.21.2 {
 /*import java.util.function.Function;

@@ -5,6 +5,8 @@ import dev.ehilynxin.fancyhealthbar.client.FancyHealthBarClient;
 //? >=1.21.6
 //import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.gui.GuiGraphics;
+//?<1.21.6
+import net.minecraft.client.renderer.RenderType;
 
 
 public record Texture(CompatKey baseId, CompatKey atlasId, SquareRegion atlasPosition, TextureNineSlice nineSlice) {

@@ -1,14 +1,17 @@
 package dev.ehilynxin.fancyhealthbar.client.accessor;
 
 //~if >=26.1 'GuiGraphics' -> 'GuiGraphicsExtractor' {
-
-import com.mojang.renderpearl.api.pipeline.RenderPipeline;
+//?>=26.3
+//import com.mojang.renderpearl.api.pipeline.RenderPipeline;
 import dev.ehilynxin.fancyhealthbar.client.compat.CompatKey;
 import net.minecraft.client.gui.GuiGraphics;
-//? <1.21.11
-//? <1.21.6
-import com.mojang.blaze3d.pipeline.RenderPipeline;
-
+//?<1.21.6
+import net.minecraft.client.renderer.RenderType;
+//?<1.21.11
+import net.minecraft.resources.ResourceLocation;
+import java.util.function.Function;
+//? >=1.21.6&&<26.3
+//import com.mojang.blaze3d.pipeline.RenderPipeline;
 
 
 public interface DrawWithAlphaAccessor {

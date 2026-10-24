@@ -3,9 +3,8 @@ package dev.ehilynxin.fancyhealthbar.client.mixin;
 import dev.ehilynxin.fancyhealthbar.client.accessor.DrawWithAlphaAccessor;
 import dev.ehilynxin.fancyhealthbar.client.compat.CompatKey;
 import net.minecraft.client.gui.GuiGraphics;
-//? <1.21.11
-//? <1.21.11
-//import net.minecraft.resources.ResourceLocation;
+//?<1.21.11
+import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;

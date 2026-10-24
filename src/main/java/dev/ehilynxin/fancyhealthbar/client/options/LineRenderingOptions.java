@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import dev.ehilynxin.fancyhealthbar.client.Try;
 import dev.ehilynxin.fancyhealthbar.client.accessor.InGameHudRenderingAccessor;
 import dev.ehilynxin.fancyhealthbar.client.animation.Animation;
+import dev.ehilynxin.fancyhealthbar.client.compat.CompatConstants;
 import dev.ehilynxin.fancyhealthbar.client.compat.Texture;
 import dev.ehilynxin.fancyhealthbar.client.compat.TextureList;
 import dev.ehilynxin.fancyhealthbar.client.compat.TextureNineSlice;
@@ -13,6 +14,7 @@ import dev.ehilynxin.fancyhealthbar.client.screen.FhbEnumToggleWidget;
 import dev.ehilynxin.fancyhealthbar.client.screen.FhbSliderWidget;
 import dev.ehilynxin.fancyhealthbar.client.screen.FhbToggleWidget;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.GridLayout;
 import net.minecraft.network.chat.Component;
 import org.joml.Vector2i;
@@ -42,8 +44,14 @@ public class LineRenderingOptions implements HealthBarRenderingOptions {
         adder.addChild(new FhbEnumToggleWidget<>(DeltaBehaviour.class, Component.translatable("options.fancyhealthbar.line.delta_behaviour"),deltaBehaviour,this::setDeltaBehaviour));
         adder.addChild(new FhbEnumToggleWidget<>(LineStyle.class, Component.translatable("options.fancyhealthbar.line.normal_style"),normalLineStyle,this::setNormalLineStyle));
         adder.addChild(new FhbEnumToggleWidget<>(LineStyle.class, Component.translatable("options.fancyhealthbar.line.hardcore_style"),hardcoreLineStyle,this::setHardcoreLineStyle));
-        adder.addChild(new FhbSliderWidget(-200,200, Component.translatable("options.fancyhealthbar.generic.offset_x"),offset().x, this::setOffsetX));
-        adder.addChild(new FhbSliderWidget(-200,200, Component.translatable("options.fancyhealthbar.generic.offset_y"),offset().y, this::setOffsetY));
+        FhbSliderWidget offsetX = new FhbSliderWidget(-200, 200, Component.translatable("options.fancyhealthbar.generic.offset_x"), offset().x, this::setOffsetX);
+        FhbSliderWidget offsetY = new FhbSliderWidget(-200, 200, Component.translatable("options.fancyhealthbar.generic.offset_y"), offset().y, this::setOffsetY);
+        if(CompatConstants.offsetWarning!=null){
+            offsetX.setTooltip(Tooltip.create(CompatConstants.offsetWarning));
+            offsetY.setTooltip(Tooltip.create(CompatConstants.offsetWarning));
+        }
+        adder.addChild(offsetX);
+        adder.addChild(offsetY);
     }
 
     public void setOffsetX(int x){
